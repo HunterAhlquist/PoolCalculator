@@ -1,0 +1,40 @@
+﻿<Window x:Class="PoolCalculator.CalcWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PoolCalculator"
+        xmlns:hc="https://handyorg.github.io/handycontrol"
+        xmlns:system="clr-namespace:System;assembly=System.Runtime"
+        mc:Ignorable="d"
+        Title="Pool Rental Calculator" 
+        Height="750" Width="700"
+        ResizeMode="NoResize">
+    <StackPanel Orientation="Horizontal">
+        <StackPanel.RenderTransform>
+            <ScaleTransform ScaleX="1.5" ScaleY="1.5"></ScaleTransform>
+        </StackPanel.RenderTransform>
+        <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                    <hc:Clock Name="In" SelectedTime="{x:Static system:DateTime.Now}" TimeFormat="OUT: hh:mmtt">
+                    </hc:Clock>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                    <hc:Clock Name="Out" SelectedTime="{x:Static system:DateTime.Now}" TimeFormat="IN: hh:mmtt"/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Height="auto">
+                <Label Name="Charge" Margin="20px" Height="auto" FontSize="24pt" Style="{DynamicResource LabelSuccess}">$ --.--</Label>
+                <Label Name="TotalTimePlayed" Margin="20px" Height="auto" FontSize="24pt" Style="{DynamicResource LabelPrimary}">2h 25m</Label>
+                
+            </StackPanel>
+            <Label Style="{DynamicResource LabelInfo.Small}">Hourly rate</Label>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Height="auto">
+                
+                <TextBox Name="RateSetting" Width="60"/>
+                <Button Name="RateApply" hc:IconElement.Geometry="{StaticResource SuccessGeometry}"></Button>
+            </StackPanel>
+        </StackPanel>
+    </StackPanel>
+</Window>
